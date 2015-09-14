@@ -1,0 +1,8 @@
+<%= link_to 'Home', topics_path %>
+<p id="notice"><%= notice %></p>
+<ul>
+<li><b>Tópico: <%= @topic.title %></b> <%= image_submit_tag("balloon.jpg", class: 'button', alt: 'Comentar') %>
+  	<%= render 'commentform' %>
+	<%= render 'comments' %>
+</li>
+</ul>

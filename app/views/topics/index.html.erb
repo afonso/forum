@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<h1>Fórum</h1>
+  <%= render 'form' %>
+  <% 
+  if params[:page].nil? || params[:page] == "0" || params[:page] == "1" 
+    x = 0
+  else
+    page = params[:page].to_i - 1
+    x = page * 5
+  end
+  %>
+<h2>Tópicos</h2>
+  <ul>
+    <% @topics.each_with_index do |topic, index| %>
+      <li><%= index + x + 1 %>. <span class="datime"><%= localize(topic.created_at, :format => :long) %></span> <%= link_to topic.title, topic %></li>
+    <% end %>
+  </ul>
+<%= paginate @topics %>

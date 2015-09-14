@@ -1,0 +1,11 @@
+<ol>
+    <% @comments.each do |comment| %>
+        <li><span class="commentbody"><span class="datime"><%= localize(comment.created_at, :format => :long) %></span> <%= comment.body %></span> <%= image_submit_tag("balloon.jpg", class: 'button', alt: 'Comentar') %>
+      	<%= render 'replyform', comment: comment %>
+      	<% if comment.has_reply? %>
+      		<%= render 'replies', comment: comment %>
+      	<% end %>
+      	</li>
+    <% end %>
+</ol>
+<%= paginate @comments %>

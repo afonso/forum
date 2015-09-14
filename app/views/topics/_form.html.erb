@@ -1,0 +1,6 @@
+<%= form_for(@topic) do |f| %>
+  <div class="field">
+    <%= f.text_field :title, placeholder: "Título" %>
+    <%= f.submit "Criar Tópico" %>
+  </div>
+<% end %>
